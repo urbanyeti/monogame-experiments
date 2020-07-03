@@ -1,0 +1,158 @@
+{ "frames": {
+   "Generic_base (Arm L - Upper).ase": {
+    "frame": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Arm L - Lower).ase": {
+    "frame": { "x": 150, "y": 0, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Leg L - Upper).ase": {
+    "frame": { "x": 300, "y": 0, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Leg L - Lower).ase": {
+    "frame": { "x": 450, "y": 0, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Boot L).ase": {
+    "frame": { "x": 0, "y": 200, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Leg R - Upper).ase": {
+    "frame": { "x": 150, "y": 200, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Leg R - Lower).ase": {
+    "frame": { "x": 300, "y": 200, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Boot R).ase": {
+    "frame": { "x": 450, "y": 200, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Torso).ase": {
+    "frame": { "x": 0, "y": 400, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Buttons).ase": {
+    "frame": { "x": 150, "y": 400, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Screen).ase": {
+    "frame": { "x": 300, "y": 400, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Arm R - Upper).ase": {
+    "frame": { "x": 450, "y": 400, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Arm R - Lower).ase": {
+    "frame": { "x": 0, "y": 600, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Head).ase": {
+    "frame": { "x": 150, "y": 600, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "Generic_base (Hat).ase": {
+    "frame": { "x": 300, "y": 600, "w": 150, "h": 200 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 150, "h": 200 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.21-x64",
+  "image": "Generic_layers.png",
+  "format": "RGBA8888",
+  "size": { "w": 600, "h": 800 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Arm L" },
+   { "name": "Arm L - Upper", "group": "Arm L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Arm L - Lower", "group": "Arm L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg L" },
+   { "name": "Leg L - Upper", "group": "Leg L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg L - Lower", "group": "Leg L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Boot L", "group": "Leg L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg R" },
+   { "name": "Leg R - Upper", "group": "Leg R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg R - Lower", "group": "Leg R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Boot R", "group": "Leg R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Torso" },
+   { "name": "Torso", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Buttons", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Screen", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Arm R" },
+   { "name": "Arm R - Upper", "group": "Arm R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Arm R - Lower", "group": "Arm R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Head" },
+   { "name": "Head", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Hat", "group": "Head", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
