@@ -69,6 +69,7 @@ namespace SpriterDemo
                     animator.Position = screenCentre;
                     animator.EventTriggered += x => Debug.WriteLine("Event Happened: " + x);
                     animator.DrawBoxOutlines = true;
+                    animator.Scale = new Vector2(1.5f,1.5f);
                 }
             }
 
@@ -124,8 +125,7 @@ namespace SpriterDemo
         private bool CheckBoundingBox(int id, SpriterObject info, int x, int y)
         {
             var objectData = _animator.Entity.ObjectInfos[id];
-            var objectScaled = new Vector2(objectData.Width, objectData.Height) * _animator.Scale;
-            Box box = _animator.GetBoundingBox(info, objectScaled.X, objectScaled.Y);
+            Box box = _animator.GetBoundingBox(info, objectData.Width, objectData.Height);
             GraphicsPath graphicsPath = new GraphicsPath();
             graphicsPath.AddPolygon(new System.Drawing.PointF[] {
                     new System.Drawing.PointF(box.Point1.X, box.Point1.Y),
