@@ -11,6 +11,7 @@ namespace SpriterDemo
     public class MonoGameDebugAnimator : MonoGameAnimator
     {
         public bool DrawSpriteOutlines { get; set; }
+        public bool DrawBoxOutlines { get; set; }
         public Color DebugColor { get; set; } = Color.Red;
 
         private readonly List<KeyValuePair<Vector2, Vector2>> lines = new List<KeyValuePair<Vector2, Vector2>>();
@@ -50,8 +51,11 @@ namespace SpriterDemo
 
         protected override void ApplyBoxTransform(SpriterObjectInfo objInfo, SpriterObject info)
         {
-            Box bounds = GetBoundingBox(info, objInfo.Width, objInfo.Height);
-            AddForDrawing(bounds);
+            if (DrawBoxOutlines)
+            {
+                Box bounds = GetBoundingBox(info, objInfo.Width, objInfo.Height);
+                AddForDrawing(bounds);
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)

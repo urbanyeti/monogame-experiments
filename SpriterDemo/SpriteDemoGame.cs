@@ -68,7 +68,7 @@ namespace SpriterDemo
                     _animators.Add(animator);
                     animator.Position = screenCentre;
                     animator.EventTriggered += x => Debug.WriteLine("Event Happened: " + x);
-                    animator.DrawSpriteOutlines = true;
+                    animator.DrawBoxOutlines = true;
                 }
             }
 
@@ -81,7 +81,7 @@ namespace SpriterDemo
 
             if (WasPressed(Keys.Right)) SwitchEntityForward();
             if (WasPressed(Keys.Left)) SwitchEntityBack();
-            if (WasPressed(Keys.OemTilde)) (_animator as MonoGameDebugAnimator).DrawSpriteOutlines = !(_animator as MonoGameDebugAnimator).DrawSpriteOutlines;
+            if (WasPressed(Keys.OemTilde)) (_animator as MonoGameDebugAnimator).DrawBoxOutlines = !(_animator as MonoGameDebugAnimator).DrawBoxOutlines;
 
             var mouseState = Mouse.GetState();
 
@@ -93,7 +93,8 @@ namespace SpriterDemo
 
             _animator.Update(deltaTime);
 
-            _backgroundColor = BoundingBoxCollision(mouseState.X, mouseState.Y) ? Color.White : Color.CornflowerBlue;
+            bool wasCollision = BoundingBoxCollision(mouseState.X, mouseState.Y);
+            _backgroundColor = wasCollision ? Color.White : Color.CornflowerBlue;
 
             _oldKeyboard = Keyboard.GetState();
             _oldMouse = mouseState;
@@ -104,15 +105,13 @@ namespace SpriterDemo
                 _elapsedTime -= 100;
                 string entity = _animator.Entity.Name;
             }
-
-
         }
 
         private bool BoundingBoxCollision(int x, int y)
         {
-            foreach (var info in _animator.FrameData.SpriteData)
+            foreach (var key in _animator.FrameData.BoxData.Keys)
             {
-                if (CheckBoundingBox(info, x, y)) //&& CheckPerPixel(info, x, y))
+                if (CheckBoundingBox(key, _animator.FrameData.BoxData[key], x, y)) //&& CheckPerPixel(info, x, y))
                 {
                     return true;
                 }
@@ -122,10 +121,11 @@ namespace SpriterDemo
         }
 
 
-        private bool CheckBoundingBox(SpriterObject info, int x, int y)
+        private bool CheckBoundingBox(int id, SpriterObject info, int x, int y)
         {
-            var sprite = _animator.SpriteProvider.Get(info.FolderId, info.FileId);
-            Box box = _animator.GetBoundingBox(info, sprite.Width, sprite.Height);
+            var objectData = _animator.Entity.ObjectInfos[id];
+            var objectScaled = new Vector2(objectData.Width, objectData.Height) * _animator.Scale;
+            Box box = _animator.GetBoundingBox(info, objectScaled.X, objectScaled.Y);
             GraphicsPath graphicsPath = new GraphicsPath();
             graphicsPath.AddPolygon(new System.Drawing.PointF[] {
                     new System.Drawing.PointF(box.Point1.X, box.Point1.Y),

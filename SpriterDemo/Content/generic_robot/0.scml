@@ -30,6 +30,11 @@
         <obj_info name="Arm R - Upper" type="bone" w="34.9259" h="10"/>
         <obj_info name="Arm R - Lower" type="bone" w="44.5432" h="10"/>
         <obj_info name="Torso" type="bone" w="67.3818" h="10"/>
+        <obj_info name="box_arm_l" type="box" w="62.0164" h="5.63236" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_torso" type="box" w="75.382" h="30.8439" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_head" type="box" w="40.0968" h="13.0081" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_arm_r" type="box" w="81.7259" h="31.0364" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_legs" type="box" w="65.4822" h="84.7716" pivot_x="0" pivot_y="0"/>
         <animation id="0" name="idle" length="1000" interval="100">
             <mainline>
                 <key id="0">
@@ -54,6 +59,11 @@
                     <object_ref id="9" parent="1" timeline="9" key="0" z_index="9"/>
                     <object_ref id="10" parent="2" timeline="10" key="0" z_index="10"/>
                     <object_ref id="11" parent="0" timeline="11" key="0" z_index="11"/>
+                    <object_ref id="12" parent="8" timeline="21" key="0" z_index="12"/>
+                    <object_ref id="13" parent="0" timeline="22" key="0" z_index="13"/>
+                    <object_ref id="14" parent="0" timeline="23" key="0" z_index="14"/>
+                    <object_ref id="15" parent="1" timeline="24" key="0" z_index="15"/>
+                    <object_ref id="16" timeline="25" key="0" z_index="16"/>
                 </key>
                 <key id="1" time="500">
                     <bone_ref id="0" timeline="12" key="1"/>
@@ -77,6 +87,11 @@
                     <object_ref id="9" parent="1" timeline="9" key="0" z_index="9"/>
                     <object_ref id="10" parent="2" timeline="10" key="0" z_index="10"/>
                     <object_ref id="11" parent="0" timeline="11" key="1" z_index="11"/>
+                    <object_ref id="12" parent="8" timeline="21" key="1" z_index="12"/>
+                    <object_ref id="13" parent="0" timeline="22" key="1" z_index="13"/>
+                    <object_ref id="14" parent="0" timeline="23" key="1" z_index="14"/>
+                    <object_ref id="15" parent="1" timeline="24" key="1" z_index="15"/>
+                    <object_ref id="16" timeline="25" key="1" z_index="16"/>
                 </key>
             </mainline>
             <timeline id="0" name="Generic_base (Arm L - Upper)">
@@ -223,6 +238,46 @@
                     <bone x="15" angle="74.543879" scale_x="0.837655"/>
                 </key>
             </timeline>
+            <timeline id="21" obj="9" name="box_arm_l" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-4" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-5" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+            </timeline>
+            <timeline id="22" obj="10" name="box_torso" object_type="box">
+                <key id="0" spin="0">
+                    <object x="75" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="71" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+            </timeline>
+            <timeline id="23" obj="11" name="box_head" object_type="box">
+                <key id="0" spin="0">
+                    <object x="106" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="101" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+            </timeline>
+            <timeline id="24" obj="12" name="box_arm_r" object_type="box">
+                <key id="0" spin="-1">
+                    <object x="-2" y="-10" pivot_x="0" pivot_y="1" angle="104.303829" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+                <key id="1" time="500">
+                    <object x="-1" y="-9" pivot_x="0" pivot_y="1" angle="99.01615" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+            </timeline>
+            <timeline id="25" obj="13" name="box_legs" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-44" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-40" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+            </timeline>
         </animation>
     </entity>
     <entity id="1" name="generic_robot_hat">
@@ -235,6 +290,11 @@
         <obj_info name="Arm R - Upper" type="bone" w="34.9259" h="10"/>
         <obj_info name="Arm R - Lower" type="bone" w="44.5432" h="10"/>
         <obj_info name="Torso" type="bone" w="67.3818" h="10"/>
+        <obj_info name="box_arm_l" type="box" w="62.0164" h="5.63236" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_torso" type="box" w="75.382" h="30.8439" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_head" type="box" w="40.0968" h="13.0081" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_arm_r" type="box" w="81.7259" h="31.0364" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_legs" type="box" w="65.4822" h="84.7716" pivot_x="0" pivot_y="0"/>
         <animation id="0" name="idle" length="1000" interval="100">
             <mainline>
                 <key id="0">
@@ -260,6 +320,11 @@
                     <object_ref id="10" parent="2" timeline="10" key="0" z_index="10"/>
                     <object_ref id="11" parent="0" timeline="11" key="0" z_index="11"/>
                     <object_ref id="12" parent="0" timeline="12" key="0" z_index="12"/>
+                    <object_ref id="13" parent="8" timeline="22" key="0" z_index="13"/>
+                    <object_ref id="14" parent="0" timeline="23" key="0" z_index="14"/>
+                    <object_ref id="15" parent="0" timeline="24" key="0" z_index="15"/>
+                    <object_ref id="16" parent="1" timeline="25" key="0" z_index="16"/>
+                    <object_ref id="17" timeline="26" key="0" z_index="17"/>
                 </key>
                 <key id="1" time="500">
                     <bone_ref id="0" timeline="13" key="1"/>
@@ -284,6 +349,11 @@
                     <object_ref id="10" parent="2" timeline="10" key="0" z_index="10"/>
                     <object_ref id="11" parent="0" timeline="11" key="1" z_index="11"/>
                     <object_ref id="12" parent="0" timeline="12" key="1" z_index="12"/>
+                    <object_ref id="13" parent="8" timeline="22" key="1" z_index="13"/>
+                    <object_ref id="14" parent="0" timeline="23" key="1" z_index="14"/>
+                    <object_ref id="15" parent="0" timeline="24" key="1" z_index="15"/>
+                    <object_ref id="16" parent="1" timeline="25" key="1" z_index="16"/>
+                    <object_ref id="17" timeline="26" key="1" z_index="17"/>
                 </key>
             </mainline>
             <timeline id="0" name="Generic_base (Arm L - Upper)">
@@ -438,6 +508,46 @@
                     <bone x="15" angle="74.543879" scale_x="0.837655"/>
                 </key>
             </timeline>
+            <timeline id="22" obj="9" name="box_arm_l" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-4" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-5" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+            </timeline>
+            <timeline id="23" obj="10" name="box_torso" object_type="box">
+                <key id="0" spin="0">
+                    <object x="75" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="71" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+            </timeline>
+            <timeline id="24" obj="11" name="box_head" object_type="box">
+                <key id="0" spin="0">
+                    <object x="106" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="101" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+            </timeline>
+            <timeline id="25" obj="12" name="box_arm_r" object_type="box">
+                <key id="0" spin="-1">
+                    <object x="-2" y="-10" pivot_x="0" pivot_y="1" angle="104.303829" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+                <key id="1" time="500">
+                    <object x="-1" y="-9" pivot_x="0" pivot_y="1" angle="99.01615" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+            </timeline>
+            <timeline id="26" obj="13" name="box_legs" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-44" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-40" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+            </timeline>
         </animation>
     </entity>
     <entity id="2" name="generic_robot_boots">
@@ -450,6 +560,11 @@
         <obj_info name="Arm R - Upper" type="bone" w="34.9259" h="10"/>
         <obj_info name="Arm R - Lower" type="bone" w="44.5432" h="10"/>
         <obj_info name="Torso" type="bone" w="67.3818" h="10"/>
+        <obj_info name="box_arm_l" type="box" w="62.0164" h="5.63236" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_torso" type="box" w="75.382" h="30.8439" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_head" type="box" w="40.0968" h="13.0081" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_arm_r" type="box" w="81.7259" h="31.0364" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_legs" type="box" w="65.4822" h="84.7716" pivot_x="0" pivot_y="0"/>
         <animation id="0" name="idle" length="1000" interval="100">
             <mainline>
                 <key id="0">
@@ -476,6 +591,11 @@
                     <object_ref id="11" parent="1" timeline="11" key="0" z_index="11"/>
                     <object_ref id="12" parent="2" timeline="12" key="0" z_index="12"/>
                     <object_ref id="13" parent="0" timeline="13" key="0" z_index="13"/>
+                    <object_ref id="14" parent="8" timeline="23" key="0" z_index="14"/>
+                    <object_ref id="15" parent="0" timeline="24" key="0" z_index="15"/>
+                    <object_ref id="16" parent="0" timeline="25" key="0" z_index="16"/>
+                    <object_ref id="17" parent="1" timeline="26" key="0" z_index="17"/>
+                    <object_ref id="18" timeline="27" key="0" z_index="18"/>
                 </key>
                 <key id="1" time="500">
                     <bone_ref id="0" timeline="14" key="1"/>
@@ -501,6 +621,11 @@
                     <object_ref id="11" parent="1" timeline="11" key="0" z_index="11"/>
                     <object_ref id="12" parent="2" timeline="12" key="0" z_index="12"/>
                     <object_ref id="13" parent="0" timeline="13" key="1" z_index="13"/>
+                    <object_ref id="14" parent="8" timeline="23" key="1" z_index="14"/>
+                    <object_ref id="15" parent="0" timeline="24" key="1" z_index="15"/>
+                    <object_ref id="16" parent="0" timeline="25" key="1" z_index="16"/>
+                    <object_ref id="17" parent="1" timeline="26" key="1" z_index="17"/>
+                    <object_ref id="18" timeline="27" key="1" z_index="18"/>
                 </key>
             </mainline>
             <timeline id="0" name="Generic_base (Arm L - Upper)">
@@ -660,6 +785,46 @@
                     <bone x="15" angle="74.543879" scale_x="0.837655"/>
                 </key>
             </timeline>
+            <timeline id="23" obj="9" name="box_arm_l" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-4" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-5" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+            </timeline>
+            <timeline id="24" obj="10" name="box_torso" object_type="box">
+                <key id="0" spin="0">
+                    <object x="75" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="71" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+            </timeline>
+            <timeline id="25" obj="11" name="box_head" object_type="box">
+                <key id="0" spin="0">
+                    <object x="106" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="101" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+            </timeline>
+            <timeline id="26" obj="12" name="box_arm_r" object_type="box">
+                <key id="0" spin="-1">
+                    <object x="-2" y="-10" pivot_x="0" pivot_y="1" angle="104.303829" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+                <key id="1" time="500">
+                    <object x="-1" y="-9" pivot_x="0" pivot_y="1" angle="99.01615" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+            </timeline>
+            <timeline id="27" obj="13" name="box_legs" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-44" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-40" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+            </timeline>
         </animation>
     </entity>
     <entity id="3" name="generic_robot_hat_boots">
@@ -672,6 +837,11 @@
         <obj_info name="Arm R - Upper" type="bone" w="34.9259" h="10"/>
         <obj_info name="Arm R - Lower" type="bone" w="44.5432" h="10"/>
         <obj_info name="Torso" type="bone" w="67.3818" h="10"/>
+        <obj_info name="box_arm_l" type="box" w="62.0164" h="5.63236" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_torso" type="box" w="75.382" h="30.8439" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_head" type="box" w="40.0968" h="13.0081" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_arm_r" type="box" w="81.7259" h="31.0364" pivot_x="0" pivot_y="0"/>
+        <obj_info name="box_legs" type="box" w="65.4822" h="84.7716" pivot_x="0" pivot_y="0"/>
         <animation id="0" name="idle" length="1000" interval="100">
             <mainline>
                 <key id="0">
@@ -699,6 +869,11 @@
                     <object_ref id="12" parent="2" timeline="12" key="0" z_index="12"/>
                     <object_ref id="13" parent="0" timeline="13" key="0" z_index="13"/>
                     <object_ref id="14" parent="0" timeline="14" key="0" z_index="14"/>
+                    <object_ref id="15" parent="8" timeline="24" key="0" z_index="15"/>
+                    <object_ref id="16" parent="0" timeline="25" key="0" z_index="16"/>
+                    <object_ref id="17" parent="0" timeline="26" key="0" z_index="17"/>
+                    <object_ref id="18" parent="1" timeline="27" key="0" z_index="18"/>
+                    <object_ref id="19" timeline="28" key="0" z_index="19"/>
                 </key>
                 <key id="1" time="500">
                     <bone_ref id="0" timeline="15" key="1"/>
@@ -725,6 +900,11 @@
                     <object_ref id="12" parent="2" timeline="12" key="0" z_index="12"/>
                     <object_ref id="13" parent="0" timeline="13" key="1" z_index="13"/>
                     <object_ref id="14" parent="0" timeline="14" key="1" z_index="14"/>
+                    <object_ref id="15" parent="8" timeline="24" key="1" z_index="15"/>
+                    <object_ref id="16" parent="0" timeline="25" key="1" z_index="16"/>
+                    <object_ref id="17" parent="0" timeline="26" key="1" z_index="17"/>
+                    <object_ref id="18" parent="1" timeline="27" key="1" z_index="18"/>
+                    <object_ref id="19" timeline="28" key="1" z_index="19"/>
                 </key>
             </mainline>
             <timeline id="0" name="Generic_base (Arm L - Upper)">
@@ -890,6 +1070,46 @@
                 </key>
                 <key id="1" time="500" spin="-1">
                     <bone x="15" angle="74.543879" scale_x="0.837655"/>
+                </key>
+            </timeline>
+            <timeline id="24" obj="9" name="box_arm_l" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-4" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-5" y="3" pivot_x="0" pivot_y="1" angle="0.470156" scale_x="0.908597" scale_y="1"/>
+                </key>
+            </timeline>
+            <timeline id="25" obj="10" name="box_torso" object_type="box">
+                <key id="0" spin="0">
+                    <object x="75" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="71" y="10" pivot_x="0" pivot_y="1" angle="270.514377" scale_y="0.67034"/>
+                </key>
+            </timeline>
+            <timeline id="26" obj="11" name="box_head" object_type="box">
+                <key id="0" spin="0">
+                    <object x="106" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="101" y="5" pivot_x="0" pivot_y="1" angle="270.514377"/>
+                </key>
+            </timeline>
+            <timeline id="27" obj="12" name="box_arm_r" object_type="box">
+                <key id="0" spin="-1">
+                    <object x="-2" y="-10" pivot_x="0" pivot_y="1" angle="104.303829" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+                <key id="1" time="500">
+                    <object x="-1" y="-9" pivot_x="0" pivot_y="1" angle="99.01615" scale_x="0.979526" scale_y="0.894192"/>
+                </key>
+            </timeline>
+            <timeline id="28" obj="13" name="box_legs" object_type="box">
+                <key id="0" spin="0">
+                    <object x="-44" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
+                </key>
+                <key id="1" time="500" spin="0">
+                    <object x="-40" y="-15" pivot_x="0" pivot_y="1" scale_y="1"/>
                 </key>
             </timeline>
         </animation>
