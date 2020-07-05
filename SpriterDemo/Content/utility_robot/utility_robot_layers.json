@@ -1,0 +1,194 @@
+{ "frames": {
+   "utility_robot_layers (Arm L - 1).ase": {
+    "frame": { "x": 27, "y": 90, "w": 29, "h": 38 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 94, "y": 31, "w": 29, "h": 38 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Arm L - 2).ase": {
+    "frame": { "x": 108, "y": 51, "w": 48, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 84, "y": 61, "w": 48, "h": 34 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Leg L - Lower).ase": {
+    "frame": { "x": 173, "y": 91, "w": 17, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 77, "y": 151, "w": 17, "h": 32 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Leg L - Foot).ase": {
+    "frame": { "x": 134, "y": 115, "w": 19, "h": 13 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 74, "y": 177, "w": 19, "h": 13 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Leg L - Upper).ase": {
+    "frame": { "x": 44, "y": 50, "w": 16, "h": 37 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 76, "y": 123, "w": 16, "h": 37 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Leg R - Lower).ase": {
+    "frame": { "x": 174, "y": 0, "w": 21, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 58, "y": 153, "w": 21, "h": 34 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Leg R - Foot).ase": {
+    "frame": { "x": 174, "y": 34, "w": 20, "h": 15 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 56, "y": 180, "w": 20, "h": 15 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Leg R - Upper).ase": {
+    "frame": { "x": 87, "y": 90, "w": 16, "h": 36 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 61, "y": 126, "w": 16, "h": 36 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Torso - Lower).ase": {
+    "frame": { "x": 108, "y": 85, "w": 26, "h": 54 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 59, "y": 78, "w": 26, "h": 54 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Torso - Upper).ase": {
+    "frame": { "x": 0, "y": 0, "w": 66, "h": 50 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 40, "y": 41, "w": 66, "h": 50 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Screen).ase": {
+    "frame": { "x": 56, "y": 90, "w": 31, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 72, "y": 53, "w": 31, "h": 32 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Helmet - Back).ase": {
+    "frame": { "x": 156, "y": 51, "w": 38, "h": 40 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 53, "y": 10, "w": 38, "h": 40 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Head).ase": {
+    "frame": { "x": 0, "y": 90, "w": 27, "h": 43 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 59, "y": 13, "w": 27, "h": 43 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Wig).ase": {
+    "frame": { "x": 66, "y": 0, "w": 58, "h": 46 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 41, "y": 6, "w": 58, "h": 46 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Face).ase": {
+    "frame": { "x": 153, "y": 115, "w": 9, "h": 22 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 73, "y": 30, "w": 9, "h": 22 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Helmet - Middle).ase": {
+    "frame": { "x": 134, "y": 91, "w": 39, "h": 24 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 51, "y": 18, "w": 39, "h": 24 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Helmet - Front).ase": {
+    "frame": { "x": 124, "y": 0, "w": 50, "h": 51 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 46, "y": 6, "w": 50, "h": 51 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Arm R - 2).ase": {
+    "frame": { "x": 0, "y": 50, "w": 44, "h": 40 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 31, "y": 76, "w": 44, "h": 40 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "utility_robot_layers (Arm R - 1).ase": {
+    "frame": { "x": 66, "y": 46, "w": 42, "h": 44 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 20, "y": 60, "w": 42, "h": 44 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.21-x64",
+  "image": "utility_robot_layers.png",
+  "format": "RGBA8888",
+  "size": { "w": 195, "h": 139 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Arm L" },
+   { "name": "Arm L - 1", "group": "Arm L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Arm L - 2", "group": "Arm L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg L" },
+   { "name": "Leg L - Lower", "group": "Leg L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg L - Foot", "group": "Leg L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg L - Upper", "group": "Leg L", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg R" },
+   { "name": "Leg R - Lower", "group": "Leg R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg R - Foot", "group": "Leg R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Leg R - Upper", "group": "Leg R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Torso" },
+   { "name": "Torso - Lower", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Torso - Upper", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Screen", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Head" },
+   { "name": "Helmet - Back", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Head", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Wig", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Face", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Helmet - Middle", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Helmet - Front", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Arm R" },
+   { "name": "Arm R - 2", "group": "Arm R", "opacity": 255, "blendMode": "normal" },
+   { "name": "Arm R - 1", "group": "Arm R", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

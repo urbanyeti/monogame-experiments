@@ -57,7 +57,7 @@ namespace SpriterDemo
                 else
                 {
                     Texture2D texture = LoadContent<Texture2D>(path);
-                    DemoTextureSprite sprite = new DemoTextureSprite(texture);
+                    TextureSprite sprite = new TextureSprite(texture);
                     factory.SetSprite(Spriter, folder, file, sprite);
                 }
 
@@ -113,7 +113,7 @@ namespace SpriterDemo
 
         private void Load()
         {
-            string data = File.ReadAllText(content.RootDirectory + "/" + scmlPath + ".scml");
+            string data = File.ReadAllText(content.RootDirectory + "../../../../../Content/" + scmlPath + ".scml");
             Spriter = SpriterReader.Default.Read(data);
             if (Spriter.Atlases == null || Spriter.Atlases.Length == 0) return;
             atlases = new Dictionary<int, TexturePackerSheet>();
@@ -122,7 +122,7 @@ namespace SpriterDemo
             foreach (var atlasRef in Spriter.Atlases)
             {
                 string path = FormatPath(atlasRef.Name);
-                string atlasData = File.ReadAllText(content.RootDirectory + "/" + path);
+                string atlasData = File.ReadAllText(content.RootDirectory + "../../../../../Content/" + path);
                 TexturePackerSheet atlas = TexturePackerSheetReader.Read(atlasData);
 
                 atlases[atlasRef.Id] = atlas;

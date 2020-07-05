@@ -67,47 +67,6 @@
 /processorParam:TextureFormat=Color
 /build:Offense/Offense_base.png
 
-#begin Utility/0.scml
-/importer:SpriterImporter
-/processor:PassThroughProcessor
-/build:Utility/0.scml
-
-#begin Utility/Utility_acc_fish.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Utility/Utility_acc_fish.png
-
-#begin Utility/Utility_acc_wig.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Utility/Utility_acc_wig.png
-
-#begin Utility/Utility_base.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Utility/Utility_base.png
-
 #begin generic_robot/0.scml
 /importer:SpriterImporter
 /processor:PassThroughProcessor
@@ -261,4 +220,26 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:defense_robot/Defense_base-Wheel.png
+
+#begin utility_robot/0.scml
+/importer:SpriterImporter
+/processor:PassThroughProcessor
+/build:utility_robot/0.scml
+
+#begin utility_robot/utility_robot_layers.json
+/importer:TexturePackerSheetImporter
+/processor:PassThroughProcessor
+/build:utility_robot/utility_robot_layers.json
+
+#begin utility_robot/utility_robot_layers.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:utility_robot/utility_robot_layers.png
 

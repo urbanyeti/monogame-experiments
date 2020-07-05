@@ -57,7 +57,7 @@ namespace SpriterDemo
 
             foreach (string scmlPath in _options.CurrentValue.ScmlFiles)
             {
-                SpriterContentLoader loader = new SpriterContentLoader(Content, scmlPath);
+                SpriterDemoContentLoader loader = new SpriterDemoContentLoader(Content, scmlPath);
                 loader.Fill(factory);
 
                 Stack<SpriteDrawInfo> drawInfoPool = new Stack<SpriteDrawInfo>();
@@ -68,7 +68,7 @@ namespace SpriterDemo
                     _animators.Add(animator);
                     animator.Position = screenCentre;
                     animator.EventTriggered += x => Debug.WriteLine("Event Happened: " + x);
-                    animator.DrawBoxOutlines = true;
+                    //animator.DrawBoxOutlines = true;
                     animator.Scale = new Vector2(1.5f,1.5f);
                 }
             }
