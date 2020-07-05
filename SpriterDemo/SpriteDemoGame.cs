@@ -22,6 +22,7 @@ namespace SpriterDemo
         SpriteBatch spriteBatch;
         private readonly IOptionsMonitor<SpriterDemoOptions> _options;
         private readonly List<MonoGameAnimator> _animators = new List<MonoGameAnimator>();
+        private readonly List<MonoGameAnimator> _robots = new List<MonoGameAnimator>();
         private MonoGameAnimator _animator;
         private KeyboardState _oldKeyboard;
         private MouseState _oldMouse;
@@ -31,25 +32,29 @@ namespace SpriterDemo
 
         public SpriteDemoGame(IOptionsMonitor<SpriterDemoOptions> options)
         {
-            graphics = new GraphicsDeviceManager(this);
+            _options = options;
+            graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferWidth = _options.CurrentValue.WindowWidth,
+                PreferredBackBufferHeight = _options.CurrentValue.WindowHeight,
+                IsFullScreen = _options.CurrentValue.FullScreen
+            };
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            _options = options;
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             base.Initialize();
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
         }
 
         protected override void LoadContent()
         {
+            Vector2 modelScale = new Vector2(_options.CurrentValue.ModelScale, _options.CurrentValue.ModelScale);
             _backgroundColor = Color.CornflowerBlue;
-            Vector2 screenCentre = new Vector2(_options.CurrentValue.WindowWidth * 0.5f, _options.CurrentValue.WindowHeight * 0.5f);
+            Vector2 screenCenter = new Vector2(_options.CurrentValue.WindowWidth * 0.5f, _options.CurrentValue.WindowHeight * 0.5f);
 
             _spriteFont = Content.Load<SpriteFont>(_options.CurrentValue.FontName);
 
@@ -64,13 +69,19 @@ namespace SpriterDemo
 
                 foreach (SpriterEntity entity in loader.Spriter.Entities)
                 {
+
                     var animator = new MonoGameDebugAnimator(entity, GraphicsDevice, factory, drawInfoPool);
                     _animators.Add(animator);
-                    animator.Position = screenCentre;
-                    animator.EventTriggered += x => Debug.WriteLine("Event Happened: " + x);
-                    //animator.DrawBoxOutlines = true;
-                    animator.Scale = new Vector2(1.5f,1.5f);
+                    //animator.EventTriggered += x => Debug.WriteLine("Event Happened: " + x);
+                    animator.Scale = modelScale;
+                    animator.Position = new Vector2(_options.CurrentValue.WindowWidth - (100 * modelScale.X), screenCenter.Y);
+                    animator.DrawBoxOutlines = true;
                 }
+
+                var robot = new MonoGameDebugAnimator(loader.Spriter.Entities[0], GraphicsDevice, factory, drawInfoPool);
+                _robots.Add(robot);
+                robot.Position = new Vector2(150 * _robots.Count, screenCenter.Y);
+                robot.Scale = new Vector2(1f, 1f);
             }
 
             _animator = _animators.First();
@@ -93,6 +104,7 @@ namespace SpriterDemo
 
 
             _animator.Update(deltaTime);
+            _robots.ForEach(x => x.Update(deltaTime));
 
             bool wasCollision = BoundingBoxCollision(mouseState.X, mouseState.Y);
             _backgroundColor = wasCollision ? Color.White : Color.CornflowerBlue;
@@ -104,7 +116,6 @@ namespace SpriterDemo
             if (_elapsedTime >= 100)
             {
                 _elapsedTime -= 100;
-                string entity = _animator.Entity.Name;
             }
         }
 
@@ -172,6 +183,7 @@ namespace SpriterDemo
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             _animator.Draw(spriteBatch);
+            _robots.ForEach(x => x.Draw(spriteBatch));
             DrawText($"Mouse [X: {_oldMouse.X}, Y: {_oldMouse.Y}]", new Vector2(100, 10), 0.6f, Color.Black);
             DrawText($"Animator [X: {_animator.Position.X}, Y: {_animator.Position.Y}]", new Vector2(100, 30), 0.6f, Color.Black);
             spriteBatch.End();

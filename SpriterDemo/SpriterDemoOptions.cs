@@ -12,6 +12,8 @@ namespace SpriterDemo
         public string FontName { get; set; }
         public int WindowWidth { get; set; }
         public int WindowHeight { get; set; }
+        public bool FullScreen { get; set; }
+        public float ModelScale { get; set; }
         public static readonly Config Config = new Config
         {
             MetadataEnabled = true,

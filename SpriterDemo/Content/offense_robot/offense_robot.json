@@ -1,0 +1,189 @@
+{ "frames": {
+   "offense_robot (Cape - Back).ase": {
+    "frame": { "x": 0, "y": 0, "w": 101, "h": 121 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 21, "y": 45, "w": 101, "h": 121 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Arm L - Upper).ase": {
+    "frame": { "x": 176, "y": 125, "w": 12, "h": 55 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 109, "y": 54, "w": 12, "h": 55 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Arm L - Lower).ase": {
+    "frame": { "x": 240, "y": 0, "w": 12, "h": 67 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 115, "y": 47, "w": 12, "h": 67 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Leg L - Lower).ase": {
+    "frame": { "x": 134, "y": 135, "w": 33, "h": 19 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 77, "y": 143, "w": 33, "h": 19 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Leg L - Foot).ase": {
+    "frame": { "x": 0, "y": 121, "w": 31, "h": 29 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 74, "y": 155, "w": 31, "h": 29 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Leg L - Upper).ase": {
+    "frame": { "x": 240, "y": 67, "w": 16, "h": 33 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 97, "y": 117, "w": 16, "h": 33 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Torso).ase": {
+    "frame": { "x": 101, "y": 0, "w": 68, "h": 86 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 47, "y": 44, "w": 68, "h": 86 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Chest - Back).ase": {
+    "frame": { "x": 31, "y": 141, "w": 17, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 86, "y": 64, "w": 17, "h": 32 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Chest - Middle).ase": {
+    "frame": { "x": 188, "y": 125, "w": 31, "h": 21 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 89, "y": 61, "w": 31, "h": 21 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Chest - Front).ase": {
+    "frame": { "x": 48, "y": 141, "w": 10, "h": 17 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 87, "y": 63, "w": 10, "h": 17 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Cape - Front).ase": {
+    "frame": { "x": 67, "y": 133, "w": 51, "h": 14 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 55, "y": 45, "w": 51, "h": 14 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Leg R - Lower).ase": {
+    "frame": { "x": 31, "y": 121, "w": 36, "h": 20 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 52, "y": 151, "w": 36, "h": 20 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Leg R - Upper).ase": {
+    "frame": { "x": 118, "y": 133, "w": 16, "h": 40 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 74, "y": 117, "w": 16, "h": 40 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Leg R - Foot).ase": {
+    "frame": { "x": 141, "y": 102, "w": 35, "h": 33 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 48, "y": 164, "w": 35, "h": 33 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Arm R - Upper).ase": {
+    "frame": { "x": 224, "y": 102, "w": 23, "h": 43 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 33, "y": 63, "w": 23, "h": 43 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Arm R - Lower).ase": {
+    "frame": { "x": 169, "y": 54, "w": 71, "h": 48 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 21, "y": 95, "w": 71, "h": 48 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Head - Default).ase": {
+    "frame": { "x": 101, "y": 86, "w": 40, "h": 47 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 62, "y": 11, "w": 40, "h": 47 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Face - Default).ase": {
+    "frame": { "x": 219, "y": 145, "w": 24, "h": 21 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 74, "y": 26, "w": 24, "h": 21 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Head - Radio).ase": {
+    "frame": { "x": 169, "y": 0, "w": 68, "h": 54 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 47, "y": 5, "w": 68, "h": 54 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   },
+   "offense_robot (Face - Radio).ase": {
+    "frame": { "x": 176, "y": 102, "w": 48, "h": 23 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 65, "y": 28, "w": 48, "h": 23 },
+    "sourceSize": { "w": 150, "h": 200 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.21-x64",
+  "image": "offense_robot.png",
+  "format": "RGBA8888",
+  "size": { "w": 256, "h": 180 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Cape - Back", "opacity": 255, "blendMode": "normal" },
+   { "name": "Torso" },
+   { "name": "Torso", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Chest - Back", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Chest - Middle", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Chest - Front", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Cape - Front", "group": "Torso", "opacity": 255, "blendMode": "normal" },
+   { "name": "Head" },
+   { "name": "Head - Default", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Face - Default", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Head - Radio", "group": "Head", "opacity": 255, "blendMode": "normal" },
+   { "name": "Face - Radio", "group": "Head", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
