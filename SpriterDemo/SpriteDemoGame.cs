@@ -21,14 +21,17 @@ namespace SpriterDemo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private readonly IOptionsMonitor<SpriterDemoOptions> _options;
-        private readonly List<MonoGameAnimator> _animators = new List<MonoGameAnimator>();
-        private readonly List<MonoGameAnimator> _robots = new List<MonoGameAnimator>();
-        private MonoGameAnimator _animator;
+        private readonly List<MonoGameDebugAnimator> _animators = new List<MonoGameDebugAnimator>();
+        private readonly Dictionary<string, MonoGameDebugAnimator> _robots = new Dictionary<string, MonoGameDebugAnimator>();
+        private MonoGameDebugAnimator _animator;
         private KeyboardState _oldKeyboard;
         private MouseState _oldMouse;
+        private Dictionary<string, bool> _oldCollisions = new Dictionary<string, bool>();
         private float _elapsedTime;
         private Color _backgroundColor;
         private SpriteFont _spriteFont;
+        private string _hoverText = "";
+        private string _currentName = "";
 
         public SpriteDemoGame(IOptionsMonitor<SpriterDemoOptions> options)
         {
@@ -76,12 +79,14 @@ namespace SpriterDemo
                     animator.Scale = modelScale;
                     animator.Position = new Vector2(_options.CurrentValue.WindowWidth - (100 * modelScale.X), screenCenter.Y);
                     animator.DrawBoxOutlines = true;
+                    animator.AnimationFinished += AnimatorFinished;
                 }
 
                 var robot = new MonoGameDebugAnimator(loader.Spriter.Entities[0], GraphicsDevice, factory, drawInfoPool);
-                _robots.Add(robot);
+                _robots[robot.Entity.Name] = robot;
                 robot.Position = new Vector2(150 * _robots.Count, screenCenter.Y);
                 robot.Scale = new Vector2(1f, 1f);
+                robot.AnimationFinished += RobotsFinished;
             }
 
             _animator = _animators.First();
@@ -102,28 +107,100 @@ namespace SpriterDemo
 
             float deltaTime = gameTime.ElapsedGameTime.Ticks / (float)TimeSpan.TicksPerMillisecond;
 
+            var collisions = new Dictionary<string, bool>();
 
+            foreach (var key in _robots.Keys)
+            {
+                _robots[key].Update(deltaTime);
+                collisions[key] = BoundingBoxCollision(_robots[key], mouseState.X, mouseState.Y);
+                if (collisions[key])
+                {
+                    _hoverText = $"Model: [{key}], Animation: [{_robots[key].Name}]";
+                }
+            }
             _animator.Update(deltaTime);
-            _robots.ForEach(x => x.Update(deltaTime));
+            collisions[_currentName] = BoundingBoxCollision(_animator, mouseState.X, mouseState.Y);
+            if (collisions[_currentName])
+            {
+                _hoverText = $"Model: [{_currentName}], Animation: [{_animator.Name}]";
+            }
+            _hoverText = collisions.Values.Any(x => x) ? _hoverText : "";
+            _backgroundColor = collisions.Values.Any(x => x) ? Color.White : Color.CornflowerBlue;
 
-            bool wasCollision = BoundingBoxCollision(mouseState.X, mouseState.Y);
-            _backgroundColor = wasCollision ? Color.White : Color.CornflowerBlue;
+            foreach (var key in collisions.Keys)
+            {
+                if (collisions[key] && (!_oldCollisions.ContainsKey(key) || !_oldCollisions[key]))
+                {
+                    if (_robots.ContainsKey(key))
+                    {
+                        _robots[key].PlaySafely("select_start");
+                    }
+                    else
+                    {
+                        _animator.PlaySafely("select_start");
+                    }
+                }
+                if (!collisions[key] && (_oldCollisions.ContainsKey(key) && _oldCollisions[key]))
+                {
+                    if (_robots.ContainsKey(key))
+                    {
+                        _robots[key].PlaySafely("select_stop");
+                    }
+                    else
+                    {
+                        _animator.PlaySafely("select_stop");
+                    }
+                }
+
+            }
 
             _oldKeyboard = Keyboard.GetState();
             _oldMouse = mouseState;
+            _oldCollisions = collisions;
 
             _elapsedTime += deltaTime;
             if (_elapsedTime >= 100)
             {
                 _elapsedTime -= 100;
+                _currentName = $"current-{_animator.Entity.Name}";
             }
         }
 
-        private bool BoundingBoxCollision(int x, int y)
+        private void RobotsFinished(string animation)
         {
-            foreach (var key in _animator.FrameData.BoxData.Keys)
+            switch (animation)
             {
-                if (CheckBoundingBox(key, _animator.FrameData.BoxData[key], x, y)) //&& CheckPerPixel(info, x, y))
+                case "select_start":
+                    _robots["offense_robot"].PlaySafely("select_loop");
+                    break;
+                case "select_stop":
+                    _robots["offense_robot"].PlaySafely("idle");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void AnimatorFinished(string animation)
+        {
+            switch (animation)
+            {
+                case "select_start":
+                    _animator.PlaySafely("select_loop");
+                    break;
+                case "select_stop":
+                    _animator.PlaySafely("idle");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private bool BoundingBoxCollision(MonoGameAnimator animator, int x, int y)
+        {
+            foreach (var key in animator.FrameData.BoxData.Keys)
+            {
+                if (CheckBoundingBox(animator, key, animator.FrameData.BoxData[key], x, y))
                 {
                     return true;
                 }
@@ -133,10 +210,10 @@ namespace SpriterDemo
         }
 
 
-        private bool CheckBoundingBox(int id, SpriterObject info, int x, int y)
+        private bool CheckBoundingBox(MonoGameAnimator animator, int id, SpriterObject info, int x, int y)
         {
-            var objectData = _animator.Entity.ObjectInfos[id];
-            Box box = _animator.GetBoundingBox(info, objectData.Width, objectData.Height);
+            var objectData = animator.Entity.ObjectInfos[id];
+            Box box = animator.GetBoundingBox(info, objectData.Width, objectData.Height);
             GraphicsPath graphicsPath = new GraphicsPath();
             graphicsPath.AddPolygon(new System.Drawing.PointF[] {
                     new System.Drawing.PointF(box.Point1.X, box.Point1.Y),
@@ -159,7 +236,7 @@ namespace SpriterDemo
             Rectangle sourceRectangle = new Rectangle();
 
             var sprite = _animator.SpriteProvider.Get(info.FolderId, info.FileId);
-            if (sprite is TexturePackerSprite textureSprite )
+            if (sprite is TexturePackerSprite textureSprite)
             {
                 sourceTexture = textureSprite.texture;
             }
@@ -183,9 +260,13 @@ namespace SpriterDemo
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             _animator.Draw(spriteBatch);
-            _robots.ForEach(x => x.Draw(spriteBatch));
+            foreach (var robot in _robots.Values)
+            {
+                robot.Draw(spriteBatch);
+            }
+
             DrawText($"Mouse [X: {_oldMouse.X}, Y: {_oldMouse.Y}]", new Vector2(100, 10), 0.6f, Color.Black);
-            DrawText($"Animator [X: {_animator.Position.X}, Y: {_animator.Position.Y}]", new Vector2(100, 30), 0.6f, Color.Black);
+            DrawText($"Selected: {_hoverText}", new Vector2(100, 30), 0.6f, Color.Black);
             spriteBatch.End();
 
             base.Draw(gameTime);

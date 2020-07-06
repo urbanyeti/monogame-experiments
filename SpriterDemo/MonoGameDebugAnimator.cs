@@ -5,6 +5,7 @@ using SpriterDotNet;
 using SpriterDotNet.MonoGame;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SpriterDemo
 {
@@ -98,6 +99,14 @@ namespace SpriterDemo
             rect.SetData(data);
 
             return rect;
+        }
+
+        public void PlaySafely(string name)
+        {
+            if (GetAnimations().Contains(name))
+            {
+                Play(name);
+            }
         }
     }
 }
