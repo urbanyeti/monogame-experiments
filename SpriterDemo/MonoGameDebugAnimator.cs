@@ -9,14 +9,16 @@ using System.Linq;
 
 namespace SpriterDemo
 {
-    public class MonoGameDebugAnimator : MonoGameAnimator
+    public class MonoGameDebugAnimator : MonoGameAnimator, ICloneable
     {
         public bool DrawSpriteOutlines { get; set; }
         public bool DrawBoxOutlines { get; set; }
         public Color DebugColor { get; set; } = Color.Red;
 
-        private readonly List<KeyValuePair<Vector2, Vector2>> lines = new List<KeyValuePair<Vector2, Vector2>>();
-        private readonly Texture2D whiteDot;
+        private readonly List<KeyValuePair<Vector2, Vector2>> _lines = new List<KeyValuePair<Vector2, Vector2>>();
+        private readonly Texture2D _whiteDot;
+        private readonly GraphicsDevice _graphicsDevice;
+        IProviderFactory<ISprite, SoundEffect> _providerFactory;
 
         private static readonly float PointBoxSize = 2.5f;
 
@@ -28,7 +30,9 @@ namespace SpriterDemo
             Stack<SpriteDrawInfo> drawInfoPool = null
         ) : base(entity, providerFactory, drawInfoPool)
         {
-            whiteDot = CreateTexture(graphicsDevice, 1, 1, Color.White);
+            _graphicsDevice = graphicsDevice;
+            _providerFactory = providerFactory;
+            _whiteDot = CreateTexture(graphicsDevice, 1, 1, Color.White);
         }
 
         protected override void ApplySpriteTransform(ISprite drawable, SpriterObject info)
@@ -63,8 +67,8 @@ namespace SpriterDemo
         {
             base.Draw(spriteBatch);
 
-            foreach (var pair in lines) DrawLine(spriteBatch, pair.Key, pair.Value);
-            lines.Clear();
+            foreach (var pair in _lines) DrawLine(spriteBatch, pair.Key, pair.Value);
+            _lines.Clear();
         }
 
         public void AddForDrawing(Box cb)
@@ -77,7 +81,7 @@ namespace SpriterDemo
 
         public void AddForDrawing(Vector2 v1, Vector2 v2)
         {
-            lines.Add(new KeyValuePair<Vector2, Vector2>(v1, v2));
+            _lines.Add(new KeyValuePair<Vector2, Vector2>(v1, v2));
         }
 
         private void DrawLine(SpriteBatch batch, Vector2 start, Vector2 end)
@@ -87,7 +91,7 @@ namespace SpriterDemo
 
             Rectangle rec = new Rectangle((int)start.X, (int)start.Y, (int)edge.Length(), 1);
 
-            batch.Draw(whiteDot, rec, null, DebugColor, angle, new Vector2(0, 0), SpriteEffects.None, 0);
+            batch.Draw(_whiteDot, rec, null, DebugColor, angle, new Vector2(0, 0), SpriteEffects.None, 0);
         }
 
         private Texture2D CreateTexture(GraphicsDevice graphics, int width, int height, Color color)
@@ -101,12 +105,6 @@ namespace SpriterDemo
             return rect;
         }
 
-        public void PlaySafely(string name)
-        {
-            if (GetAnimations().Contains(name))
-            {
-                Play(name);
-            }
-        }
+        public object Clone() => new MonoGameDebugAnimator(Entity, _graphicsDevice, _providerFactory, DrawInfoPool);
     }
 }

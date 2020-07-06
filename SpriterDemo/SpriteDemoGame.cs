@@ -21,8 +21,10 @@ namespace SpriterDemo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private readonly IOptionsMonitor<SpriterDemoOptions> _options;
-        private readonly List<MonoGameDebugAnimator> _animators = new List<MonoGameDebugAnimator>();
-        private readonly Dictionary<string, MonoGameDebugAnimator> _robots = new Dictionary<string, MonoGameDebugAnimator>();
+        private readonly Dictionary<string, MonoGameDebugAnimator> _animators = new Dictionary<string, MonoGameDebugAnimator>();
+        private readonly Dictionary<string, Robot> _robots = new Dictionary<string, Robot>();
+        private readonly Dictionary<string, MenuItem> _menus = new Dictionary<string, MenuItem>();
+        private MenuItem _selectedItem;
         private MonoGameDebugAnimator _animator;
         private KeyboardState _oldKeyboard;
         private MouseState _oldMouse;
@@ -63,7 +65,7 @@ namespace SpriterDemo
 
             DefaultProviderFactory<ISprite, SoundEffect> factory = new DefaultProviderFactory<ISprite, SoundEffect>(SpriterDemoOptions.Config, true);
 
-            foreach (string scmlPath in _options.CurrentValue.ScmlFiles)
+            foreach (string scmlPath in _options.CurrentValue.RobotSprites)
             {
                 SpriterDemoContentLoader loader = new SpriterDemoContentLoader(Content, scmlPath);
                 loader.Fill(factory);
@@ -72,24 +74,44 @@ namespace SpriterDemo
 
                 foreach (SpriterEntity entity in loader.Spriter.Entities)
                 {
-
                     var animator = new MonoGameDebugAnimator(entity, GraphicsDevice, factory, drawInfoPool);
-                    _animators.Add(animator);
-                    //animator.EventTriggered += x => Debug.WriteLine("Event Happened: " + x);
-                    animator.Scale = modelScale;
-                    animator.Position = new Vector2(_options.CurrentValue.WindowWidth - (100 * modelScale.X), screenCenter.Y);
-                    animator.DrawBoxOutlines = true;
-                    animator.AnimationFinished += AnimatorFinished;
+                    _animators[Robot.Prefix + entity.Name] = animator;
+                    //animator.Scale = modelScale;
+                    //animator.Position = new Vector2(_options.CurrentValue.WindowWidth - (100 * modelScale.X), screenCenter.Y);
+                    //animator.DrawBoxOutlines = true;
+                    //animator.AnimationFinished += AnimatorFinished;
                 }
-
-                var robot = new MonoGameDebugAnimator(loader.Spriter.Entities[0], GraphicsDevice, factory, drawInfoPool);
-                _robots[robot.Entity.Name] = robot;
-                robot.Position = new Vector2(150 * _robots.Count, screenCenter.Y);
-                robot.Scale = new Vector2(1f, 1f);
-                robot.AnimationFinished += RobotsFinished;
             }
 
-            _animator = _animators.First();
+            var debugRobots = new List<string> { "offense_robot", "defense_robot", "utility_robot", "generic_robot" };
+            foreach (var robotName in debugRobots)
+            {
+                string key = Robot.Prefix + robotName;
+                if (_animators.ContainsKey(key))
+                {
+                    var robot = new Robot(key, _animators[key]);
+                    robot.Animator.Position = new Vector2(150 * _robots.Count + 200, screenCenter.Y);
+                    robot.Animator.Scale = new Vector2(1f, 1f);
+                    _robots[robot.Key] = robot;
+                }
+            }
+
+            foreach (string scmlPath in _options.CurrentValue.MenuSprites)
+            {
+                SpriterDemoContentLoader loader = new SpriterDemoContentLoader(Content, scmlPath);
+                loader.Fill(factory);
+                Stack<SpriteDrawInfo> drawInfoPool = new Stack<SpriteDrawInfo>();
+
+                foreach (SpriterEntity entity in loader.Spriter.Entities)
+                {
+                    var menu = new MenuItem(entity.Name, new MonoGameDebugAnimator(entity, GraphicsDevice, factory, drawInfoPool));
+                    _menus[menu.Name] = menu;
+                    menu.Animator.Position = new Vector2(150 * _menus.Count, 150);
+                    menu.Animator.Scale = new Vector2(.75f, .75f);
+                }
+            }
+
+            //_animator = _animators.First();
         }
 
         protected override void Update(GameTime gameTime)
@@ -112,20 +134,33 @@ namespace SpriterDemo
             foreach (var key in _robots.Keys)
             {
                 _robots[key].Update(deltaTime);
-                collisions[key] = BoundingBoxCollision(_robots[key], mouseState.X, mouseState.Y);
+                collisions[key] = BoundingBoxCollision(_robots[key].Animator, mouseState.X, mouseState.Y);
                 if (collisions[key])
                 {
                     _hoverText = $"Model: [{key}], Animation: [{_robots[key].Name}]";
                 }
             }
-            _animator.Update(deltaTime);
-            collisions[_currentName] = BoundingBoxCollision(_animator, mouseState.X, mouseState.Y);
-            if (collisions[_currentName])
+
+            //_animator.Update(deltaTime);
+            //collisions[_currentName] = BoundingBoxCollision(_animator, mouseState.X, mouseState.Y);
+            //if (collisions[_currentName])
+            //{
+            //    _hoverText = $"Model: [{_currentName}], Animation: [{_animator.Name}]";
+            //}
+
+            foreach (var menu in _menus)
             {
-                _hoverText = $"Model: [{_currentName}], Animation: [{_animator.Name}]";
+                menu.Value.Update(deltaTime);
+                collisions[menu.Key] = BoundingBoxCollision(menu.Value.Animator, mouseState.X, mouseState.Y);
+                if (collisions[menu.Key])
+                {
+                    _hoverText = $"Menu: [{menu.Key}], Animation: [{menu.Value.Animator.Name}]";
+                }
             }
+
+
             _hoverText = collisions.Values.Any(x => x) ? _hoverText : "";
-            _backgroundColor = collisions.Values.Any(x => x) ? Color.White : Color.CornflowerBlue;
+            //_backgroundColor = collisions.Values.Any(x => x) ? Color.White : Color.CornflowerBlue;
 
             foreach (var key in collisions.Keys)
             {
@@ -135,9 +170,13 @@ namespace SpriterDemo
                     {
                         _robots[key].PlaySafely("select_start");
                     }
+                    else if (_menus.ContainsKey(key))
+                    {
+                        _menus[key].PlaySafely("select_start");
+                    }
                     else
                     {
-                        _animator.PlaySafely("select_start");
+                        //_animator.PlaySafely("select_start");
                     }
                 }
                 if (!collisions[key] && (_oldCollisions.ContainsKey(key) && _oldCollisions[key]))
@@ -146,9 +185,13 @@ namespace SpriterDemo
                     {
                         _robots[key].PlaySafely("select_stop");
                     }
+                    else if (_menus.ContainsKey(key))
+                    {
+                        _menus[key].PlaySafely("select_stop");
+                    }
                     else
                     {
-                        _animator.PlaySafely("select_stop");
+                        //_animator.PlaySafely("select_stop");
                     }
                 }
 
@@ -162,7 +205,7 @@ namespace SpriterDemo
             if (_elapsedTime >= 100)
             {
                 _elapsedTime -= 100;
-                _currentName = $"current-{_animator.Entity.Name}";
+                //_currentName = $"current-{_animator.Entity.Name}";
             }
         }
 
@@ -181,20 +224,20 @@ namespace SpriterDemo
             }
         }
 
-        private void AnimatorFinished(string animation)
-        {
-            switch (animation)
-            {
-                case "select_start":
-                    _animator.PlaySafely("select_loop");
-                    break;
-                case "select_stop":
-                    _animator.PlaySafely("idle");
-                    break;
-                default:
-                    break;
-            }
-        }
+        //private void AnimatorFinished(string animation)
+        //{
+        //    switch (animation)
+        //    {
+        //        case "select_start":
+        //            _animator.PlaySafely("select_loop");
+        //            break;
+        //        case "select_stop":
+        //            _animator.PlaySafely("idle");
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
 
         private bool BoundingBoxCollision(MonoGameAnimator animator, int x, int y)
         {
@@ -259,10 +302,14 @@ namespace SpriterDemo
             GraphicsDevice.Clear(_backgroundColor);
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
-            _animator.Draw(spriteBatch);
+            //_animator.Draw(spriteBatch);
             foreach (var robot in _robots.Values)
             {
                 robot.Draw(spriteBatch);
+            }
+            foreach (var menu in _menus)
+            {
+                menu.Value.Animator.Draw(spriteBatch);
             }
 
             DrawText($"Mouse [X: {_oldMouse.X}, Y: {_oldMouse.Y}]", new Vector2(100, 10), 0.6f, Color.Black);
@@ -285,18 +332,18 @@ namespace SpriterDemo
 
         private void SwitchEntityForward()
         {
-            int index = _animators.IndexOf(_animator);
-            ++index;
-            if (index >= _animators.Count) index = 0;
-            _animator = _animators[index];
+            //int index = _animators.IndexOf(_animator);
+            //++index;
+            //if (index >= _animators.Count) index = 0;
+            //_animator = _animators[index];
         }
 
         private void SwitchEntityBack()
         {
-            int index = _animators.IndexOf(_animator);
-            --index;
-            if (index < 0) index = _animators.Count - 1;
-            _animator = _animators[index];
+            //int index = _animators.IndexOf(_animator);
+            //--index;
+            //if (index < 0) index = _animators.Count - 1;
+            //_animator = _animators[index];
         }
     }
 }

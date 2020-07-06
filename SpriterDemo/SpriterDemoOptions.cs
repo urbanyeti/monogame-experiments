@@ -8,7 +8,8 @@ namespace SpriterDemo
     public class SpriterDemoOptions
     {
         public const string SpriterDemo = "SpriterDemo";
-        public List<string> ScmlFiles { get; set; }
+        public List<string> RobotSprites { get; set; }
+        public List<string> MenuSprites { get; set; }
         public string FontName { get; set; }
         public int WindowWidth { get; set; }
         public int WindowHeight { get; set; }

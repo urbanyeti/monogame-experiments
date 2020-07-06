@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11" pixel_mode="1">
+    <folder id="0">
+        <file id="0" name="menu_attack.png" width="173" height="79" pivot_x="0.5" pivot_y="0.5"/>
+        <file id="1" name="menu_defend.png" width="173" height="79" pivot_x="0.5" pivot_y="0.5"/>
+        <file id="2" name="menu_tinker.png" width="173" height="79" pivot_x="0.5" pivot_y="0.5"/>
+    </folder>
+    <entity id="0" name="menu_tinker">
+        <obj_info name="box_menu" type="box" w="175.463" h="78.7037" pivot_x="1" pivot_y="1"/>
+        <character_map id="0" name="New Character Map"/>
+        <animation id="0" name="idle" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="select_start" length="100" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="2" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="select_loop" length="600" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="300">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="300" spin="0">
+                    <object folder="0" file="2" scale_x="1.29935" scale_y="1.358696"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="300" spin="0">
+                    <object x="112" y="-54" pivot_x="0" pivot_y="1" angle="180" scale_x="1.290907" scale_y="1.409816"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="select_stop" length="450" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="450">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="450" spin="0">
+                    <object folder="0" file="2" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="450" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="select_click" length="300" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="250">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="300">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="2" scale_x="0.590677" scale_y="0.590677"/>
+                </key>
+                <key id="2" time="300" spin="0">
+                    <object folder="0" file="2" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+                <key id="2" time="300" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+    <entity id="1" name="menu_attack">
+        <obj_info name="box_menu" type="box" w="175.463" h="78.7037" pivot_x="1" pivot_y="1"/>
+        <character_map id="0" name="New Character Map"/>
+        <animation id="0" name="idle" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="select_start" length="100" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="0" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="select_loop" length="600" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="300">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="300" spin="0">
+                    <object folder="0" file="0" scale_x="1.29935" scale_y="1.358696"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="300" spin="0">
+                    <object x="112" y="-54" pivot_x="0" pivot_y="1" angle="180" scale_x="1.290907" scale_y="1.409816"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="select_stop" length="450" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="450">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="450" spin="0">
+                    <object folder="0" file="0" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="450" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="select_click" length="300" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="250">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="300">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="0" scale_x="0.590677" scale_y="0.590677"/>
+                </key>
+                <key id="2" time="300" spin="0">
+                    <object folder="0" file="0" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+                <key id="2" time="300" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+    <entity id="2" name="menu_defend">
+        <obj_info name="box_menu" type="box" w="175.463" h="78.7037" pivot_x="1" pivot_y="1"/>
+        <character_map id="0" name="New Character Map"/>
+        <animation id="0" name="idle" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="select_start" length="100" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="1" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="select_loop" length="600" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="300">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="300" spin="0">
+                    <object folder="0" file="1" scale_x="1.29935" scale_y="1.358696"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="300" spin="0">
+                    <object x="112" y="-54" pivot_x="0" pivot_y="1" angle="180" scale_x="1.290907" scale_y="1.409816"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="select_stop" length="450" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="450">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="450" spin="0">
+                    <object folder="0" file="1" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="450" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="select_click" length="300" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="250">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="300">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="menu_attack">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" scale_x="1.155087" scale_y="1.155087"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object folder="0" file="1" scale_x="0.590677" scale_y="0.590677"/>
+                </key>
+                <key id="2" time="300" spin="0">
+                    <object folder="0" file="1" scale_x="0.766284" scale_y="0.766284"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="box_menu" object_type="box">
+                <key id="0" spin="0">
+                    <object x="100" y="-46" pivot_x="0" pivot_y="1" angle="180" scale_x="1.145414" scale_y="1.169452"/>
+                </key>
+                <key id="1" time="250" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+                <key id="2" time="300" spin="0">
+                    <object x="67" y="-31" pivot_x="0" pivot_y="1" angle="180" scale_x="0.770912" scale_y="0.808713"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

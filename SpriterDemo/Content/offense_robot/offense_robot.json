@@ -8,7 +8,7 @@
     "duration": 100
    },
    "offense_robot (Arm L - Upper).ase": {
-    "frame": { "x": 176, "y": 125, "w": 12, "h": 55 },
+    "frame": { "x": 208, "y": 125, "w": 12, "h": 55 },
     "rotated": false,
     "trimmed": true,
     "spriteSourceSize": { "x": 109, "y": 54, "w": 12, "h": 55 },
@@ -64,18 +64,18 @@
     "duration": 100
    },
    "offense_robot (Chest - Middle).ase": {
-    "frame": { "x": 188, "y": 125, "w": 31, "h": 21 },
+    "frame": { "x": 176, "y": 125, "w": 32, "h": 21 },
     "rotated": false,
     "trimmed": true,
-    "spriteSourceSize": { "x": 89, "y": 61, "w": 31, "h": 21 },
+    "spriteSourceSize": { "x": 88, "y": 61, "w": 32, "h": 21 },
     "sourceSize": { "w": 150, "h": 200 },
     "duration": 100
    },
    "offense_robot (Chest - Front).ase": {
-    "frame": { "x": 48, "y": 141, "w": 10, "h": 17 },
+    "frame": { "x": 48, "y": 141, "w": 17, "h": 19 },
     "rotated": false,
     "trimmed": true,
-    "spriteSourceSize": { "x": 87, "y": 63, "w": 10, "h": 17 },
+    "spriteSourceSize": { "x": 80, "y": 62, "w": 17, "h": 19 },
     "sourceSize": { "w": 150, "h": 200 },
     "duration": 100
    },
@@ -136,7 +136,7 @@
     "duration": 100
    },
    "offense_robot (Face - Default).ase": {
-    "frame": { "x": 219, "y": 145, "w": 24, "h": 21 },
+    "frame": { "x": 220, "y": 145, "w": 24, "h": 21 },
     "rotated": false,
     "trimmed": true,
     "spriteSourceSize": { "x": 74, "y": 26, "w": 24, "h": 21 },
@@ -176,12 +176,7 @@
    { "name": "Chest - Back", "group": "Torso", "opacity": 255, "blendMode": "normal" },
    { "name": "Chest - Middle", "group": "Torso", "opacity": 255, "blendMode": "normal" },
    { "name": "Chest - Front", "group": "Torso", "opacity": 255, "blendMode": "normal" },
-   { "name": "Cape - Front", "group": "Torso", "opacity": 255, "blendMode": "normal" },
-   { "name": "Head" },
-   { "name": "Head - Default", "group": "Head", "opacity": 255, "blendMode": "normal" },
-   { "name": "Face - Default", "group": "Head", "opacity": 255, "blendMode": "normal" },
-   { "name": "Head - Radio", "group": "Head", "opacity": 255, "blendMode": "normal" },
-   { "name": "Face - Radio", "group": "Head", "opacity": 255, "blendMode": "normal" }
+   { "name": "Cape - Front", "group": "Torso", "opacity": 255, "blendMode": "normal" }
   ],
   "slices": [
   ]
