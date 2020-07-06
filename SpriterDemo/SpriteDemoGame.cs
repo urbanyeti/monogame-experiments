@@ -23,9 +23,9 @@ namespace SpriterDemo
         private readonly IOptionsMonitor<SpriterDemoOptions> _options;
         private readonly Dictionary<string, MonoGameDebugAnimator> _animators = new Dictionary<string, MonoGameDebugAnimator>();
         private readonly Dictionary<string, Robot> _robots = new Dictionary<string, Robot>();
-        private readonly Dictionary<string, MenuItem> _menus = new Dictionary<string, MenuItem>();
-        private MenuItem _selectedItem;
-        private MonoGameDebugAnimator _animator;
+        //private readonly Dictionary<string, MenuItem> _menus = new Dictionary<string, MenuItem>();
+        //private MenuItem _selectedItem;
+        ///private MonoGameDebugAnimator _animator;
         private KeyboardState _oldKeyboard;
         private MouseState _oldMouse;
         private Dictionary<string, bool> _oldCollisions = new Dictionary<string, bool>();
@@ -33,7 +33,7 @@ namespace SpriterDemo
         private Color _backgroundColor;
         private SpriteFont _spriteFont;
         private string _hoverText = "";
-        private string _currentName = "";
+        //private string _currentName = "";
 
         public SpriteDemoGame(IOptionsMonitor<SpriterDemoOptions> options)
         {
@@ -83,19 +83,6 @@ namespace SpriterDemo
                 }
             }
 
-            var debugRobots = new List<string> { "offense_robot", "defense_robot", "utility_robot", "generic_robot" };
-            foreach (var robotName in debugRobots)
-            {
-                string key = Robot.Prefix + robotName;
-                if (_animators.ContainsKey(key))
-                {
-                    var robot = new Robot(key, _animators[key]);
-                    robot.Animator.Position = new Vector2(150 * _robots.Count + 200, screenCenter.Y);
-                    robot.Animator.Scale = new Vector2(1f, 1f);
-                    _robots[robot.Key] = robot;
-                }
-            }
-
             foreach (string scmlPath in _options.CurrentValue.MenuSprites)
             {
                 SpriterDemoContentLoader loader = new SpriterDemoContentLoader(Content, scmlPath);
@@ -104,14 +91,38 @@ namespace SpriterDemo
 
                 foreach (SpriterEntity entity in loader.Spriter.Entities)
                 {
-                    var menu = new MenuItem(entity.Name, new MonoGameDebugAnimator(entity, GraphicsDevice, factory, drawInfoPool));
-                    _menus[menu.Name] = menu;
-                    menu.Animator.Position = new Vector2(150 * _menus.Count, 150);
-                    menu.Animator.Scale = new Vector2(.75f, .75f);
+                    var menu = new MonoGameDebugAnimator(entity, GraphicsDevice, factory, drawInfoPool);
+                    _animators[MenuItem.Prefix + entity.Name] = menu;
                 }
             }
 
+            var debugRobots = new List<string> { "offense_robot" };//, "defense_robot", "utility_robot", "generic_robot" };
+            foreach (var robotName in debugRobots)
+            {
+                string key = Robot.Prefix + robotName;
+                if (_animators.ContainsKey(key))
+                {
+                    var robot = new Robot(robotName, _animators[key]);
+                    robot.Animator.Position = new Vector2(150 * _robots.Count + 200, screenCenter.Y);
+                    robot.Animator.Scale = new Vector2(1f, 1f);
+                    AddContextMenuItem(robot, "menu_tinker", MenuPosition.Left);
+                    AddContextMenuItem(robot, "menu_attack", MenuPosition.Top);
+                    AddContextMenuItem(robot, "menu_defend", MenuPosition.Right);
+
+                    _robots[robot.Key] = robot;
+                }
+            }
             //_animator = _animators.First();
+        }
+
+        public void AddContextMenuItem(Robot robot, string name, MenuPosition menuPosition)
+        {
+            string key = MenuItem.Prefix + name;
+            if (_animators.ContainsKey(key))
+            {
+                var menuItem = new MenuItem(name, _animators[key]);
+                robot.AddContextMenuItem(menuItem, menuPosition);
+            }
         }
 
         protected override void Update(GameTime gameTime)
@@ -120,7 +131,7 @@ namespace SpriterDemo
 
             if (WasPressed(Keys.Right)) SwitchEntityForward();
             if (WasPressed(Keys.Left)) SwitchEntityBack();
-            if (WasPressed(Keys.OemTilde)) (_animator as MonoGameDebugAnimator).DrawBoxOutlines = !(_animator as MonoGameDebugAnimator).DrawBoxOutlines;
+            //if (WasPressed(Keys.OemTilde)) (_animator as MonoGameDebugAnimator).DrawBoxOutlines = !(_animator as MonoGameDebugAnimator).DrawBoxOutlines;
 
             var mouseState = Mouse.GetState();
 
@@ -148,15 +159,15 @@ namespace SpriterDemo
             //    _hoverText = $"Model: [{_currentName}], Animation: [{_animator.Name}]";
             //}
 
-            foreach (var menu in _menus)
-            {
-                menu.Value.Update(deltaTime);
-                collisions[menu.Key] = BoundingBoxCollision(menu.Value.Animator, mouseState.X, mouseState.Y);
-                if (collisions[menu.Key])
-                {
-                    _hoverText = $"Menu: [{menu.Key}], Animation: [{menu.Value.Animator.Name}]";
-                }
-            }
+            //foreach (var menu in _menus)
+            //{
+            //    menu.Value.Update(deltaTime);
+            //    collisions[menu.Key] = BoundingBoxCollision(menu.Value.Animator, mouseState.X, mouseState.Y);
+            //    if (collisions[menu.Key])
+            //    {
+            //        _hoverText = $"Menu: [{menu.Key}], Animation: [{menu.Value.Animator.Name}]";
+            //    }
+            //}
 
 
             _hoverText = collisions.Values.Any(x => x) ? _hoverText : "";
@@ -168,31 +179,33 @@ namespace SpriterDemo
                 {
                     if (_robots.ContainsKey(key))
                     {
+                        _robots[key].ShowContextMenu = true;
                         _robots[key].PlaySafely("select_start");
                     }
-                    else if (_menus.ContainsKey(key))
-                    {
-                        _menus[key].PlaySafely("select_start");
-                    }
-                    else
-                    {
-                        //_animator.PlaySafely("select_start");
-                    }
+                    //else if (_menus.ContainsKey(key))
+                    //{
+                    //    _menus[key].PlaySafely("select_start");
+                    //}
+                    //else
+                    //{
+                    //    //_animator.PlaySafely("select_start");
+                    //}
                 }
                 if (!collisions[key] && (_oldCollisions.ContainsKey(key) && _oldCollisions[key]))
                 {
                     if (_robots.ContainsKey(key))
                     {
+                        _robots[key].ShowContextMenu = false;
                         _robots[key].PlaySafely("select_stop");
                     }
-                    else if (_menus.ContainsKey(key))
-                    {
-                        _menus[key].PlaySafely("select_stop");
-                    }
-                    else
-                    {
-                        //_animator.PlaySafely("select_stop");
-                    }
+                    //else if (_menus.ContainsKey(key))
+                    //{
+                    //    _menus[key].PlaySafely("select_stop");
+                    //}
+                    //else
+                    //{
+                    //    //_animator.PlaySafely("select_stop");
+                    //}
                 }
 
             }
@@ -273,44 +286,46 @@ namespace SpriterDemo
             return false;
         }
 
-        private bool CheckPerPixel(SpriterObject info, int x, int y)
-        {
-            Texture2D sourceTexture = null;
-            Rectangle sourceRectangle = new Rectangle();
+        //private bool CheckPerPixel(SpriterObject info, int x, int y)
+        //{
+        //    Texture2D sourceTexture = null;
+        //    Rectangle sourceRectangle = new Rectangle();
 
-            var sprite = _animator.SpriteProvider.Get(info.FolderId, info.FileId);
-            if (sprite is TexturePackerSprite textureSprite)
-            {
-                sourceTexture = textureSprite.texture;
-            }
+        //    var sprite = _animator.SpriteProvider.Get(info.FolderId, info.FileId);
+        //    if (sprite is TexturePackerSprite textureSprite)
+        //    {
+        //        sourceTexture = textureSprite.texture;
+        //    }
 
-            var sourceColors = new Color[sourceTexture.Width * sourceTexture.Height];
-            sourceTexture.GetData(sourceColors);
+        //    var sourceColors = new Color[sourceTexture.Width * sourceTexture.Height];
+        //    sourceTexture.GetData(sourceColors);
 
-            var sourceColor = sourceColors[((x - (int)info.X) + (y - ((int)info.Y)) * sourceTexture.Width)];
+        //    var sourceColor = sourceColors[((x - (int)info.X) + (y - ((int)info.Y)) * sourceTexture.Width)];
 
-            if (sourceColor.A > 0)
-            {
-                return true;
-            }
+        //    if (sourceColor.A > 0)
+        //    {
+        //        return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(_backgroundColor);
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             //_animator.Draw(spriteBatch);
             foreach (var robot in _robots.Values)
             {
                 robot.Draw(spriteBatch);
             }
-            foreach (var menu in _menus)
-            {
-                menu.Value.Animator.Draw(spriteBatch);
-            }
+
+
+            //foreach (var menu in _menus)
+            //{
+            //    menu.Value.Animator.Draw(spriteBatch);
+            //}
 
             DrawText($"Mouse [X: {_oldMouse.X}, Y: {_oldMouse.Y}]", new Vector2(100, 10), 0.6f, Color.Black);
             DrawText($"Selected: {_hoverText}", new Vector2(100, 30), 0.6f, Color.Black);

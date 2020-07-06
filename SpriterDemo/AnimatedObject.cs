@@ -15,7 +15,7 @@ namespace SpriterDemo
         public string Name { get; }
         public MonoGameDebugAnimator Animator { get; }
         public static string Prefix { get; } = "general-";
-        public string Key => Prefix + Name;
+        public virtual string Key => Prefix + Name;
 
         public virtual void Update(float deltaTime) => Animator.Update(deltaTime);
         public virtual void Draw(SpriteBatch spriteBatch) => Animator.Draw(spriteBatch);

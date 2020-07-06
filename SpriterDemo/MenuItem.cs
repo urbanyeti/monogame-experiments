@@ -9,9 +9,11 @@ namespace SpriterDemo
         public MenuItem(string name, MonoGameDebugAnimator animator)
             : base(name, animator)
         {
+            PlaySafely("idle");
         }
 
         public static new string Prefix { get; } = "menu-";
+        public override string Key => Prefix + Name;
 
         protected override void AnimationFinished(string animation)
         {
