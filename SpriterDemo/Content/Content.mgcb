@@ -10,7 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\bin\Debug\netcoreapp2.0\SpriterDotNet.MonoGame.Importer.dll
+/reference:..\bin\Debug\netcoreapp3.1\SpriterDotNet.MonoGame.Importer.dll
 
 #---------------------------------- Content ---------------------------------#
 

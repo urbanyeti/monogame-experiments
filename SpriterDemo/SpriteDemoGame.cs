@@ -96,14 +96,14 @@ namespace SpriterDemo
                 }
             }
 
-            var debugRobots = new List<string> { "offense_robot" };//, "defense_robot", "utility_robot", "generic_robot" };
+            var debugRobots = new List<string> { "offense_robot" , "defense_robot", "utility_robot", "generic_robot" };
             foreach (var robotName in debugRobots)
             {
                 string key = Robot.Prefix + robotName;
                 if (_animators.ContainsKey(key))
                 {
                     var robot = new Robot(robotName, _animators[key]);
-                    robot.Animator.Position = new Vector2(150 * _robots.Count + 200, screenCenter.Y);
+                    robot.Animator.Position = new Vector2(250 * _robots.Count + 200, screenCenter.Y);
                     robot.Animator.Scale = new Vector2(1f, 1f);
                     AddContextMenuItem(robot, "menu_tinker", MenuPosition.Left);
                     AddContextMenuItem(robot, "menu_attack", MenuPosition.Top);
